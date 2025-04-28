@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.content {
+    text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    animation: scaleUp 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(218, 255, 123, 0.3));
+}
+
+.title {
+    background: linear-gradient(45deg, #DCFF7B, #8AB318);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    text-shadow: 0 0 15px rgba(218, 255, 123, 0.3);
+    line-height: 1;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 2rem auto;
+    opacity: 0;
+    animation: textReveal 0.6s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.button-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.join-button,
+.secondary-button {
+    background: rgba(218, 255, 123, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #DCFF7B;
+    border: 1px solid rgba(218, 255, 123, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.join-button:hover,
+.secondary-button:hover {
+    background: rgba(218, 255, 123, 0.15);
+    border-color: rgba(218, 255, 123, 0.5);
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    filter: brightness(1) saturate(100%);
+    transition: inherit;
+}
+
+.join-button:hover .btn-icon {
+    transform: rotate(-8deg) scale(1.15);
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #DCFF7B, #8AB318);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(218, 255, 123, 0.3);
+    margin: 3rem 0;
+}
+
+.podium-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.podium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: end;
+}
+
+.podium-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.podium-item .nickname {
+    text-align: center;
+    padding-left: 0;
+}
+
+.gold {
+    height: 380px;
+    background: linear-gradient(180deg, 
+        rgba(218, 255, 123, 0.1) 0%,
+        rgba(138, 179, 24, 0.2) 100%);
+    border-color: #DCFF7B;
+    box-shadow: 0 0 35px rgba(218, 255, 123, 0.2);
+}
+
+.silver {
+    height: 320px;
+    background: linear-gradient(180deg, 
+        rgba(255,255,255,0.08) 0%,
+        rgba(170,170,170,0.15) 100%);
+    border-color: #c0c0c0;
+}
+
+.bronze {
+    height: 280px;
+    background: linear-gradient(180deg, 
+        rgba(205, 127, 50, 0.08) 0%,
+        rgba(139, 69, 19, 0.15) 100%);
+    border-color: #cd7f32;
+}
+
+.rank {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #DCFF7B;
+    text-shadow: 0 0 15px rgba(218, 255, 123, 0.3);
+    margin-bottom: 1rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nickname {
+    font-size: 1.9rem;
+    font-weight: 700;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #DCFF7B;
+}
+
+.stats {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.leaderboard-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.leaderboard {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(218, 255, 123, 0.1);
+    box-shadow: 0 0 30px rgba(218, 255, 123, 0.1);
+    padding: 2rem;
+}
+
+.leader-item {
+    border: 1px solid transparent;
+    transition: background 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                border 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: grid;
+    grid-template-columns: 60px 1fr auto auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.leader-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #DCFF7B, #8AB318);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.leader-item:hover {
+    background: rgba(218, 255, 123, 0.05) !important;
+    border: 1px solid rgba(218, 255, 123, 0.5) !important;
+}
+
+.leader-item:hover .badge {
+    background: rgba(218, 255, 123, 0.15) !important;
+}
+
+.leader-item::before,
+.leader-item:hover::before {
+    display: none !important;
+}
+
+.position {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #8AB318;
+    text-align: center;
+    z-index: 1;
+}
+
+.nickname {
+    font-size: 1.4rem;
+    text-align: left;
+    padding-left: 1rem;
+    z-index: 1;
+}
+
+.points {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    z-index: 1;
+}
+
+.badge {
+    background: rgba(218, 255, 123, 0.1);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: #DCFF7B;
+    border: 1px solid rgba(218, 255, 123, 0.2);
+    z-index: 1;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes itemAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.leader-item {
+    animation: itemAppear 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .header-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .join-button,
+    .secondary-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .btn-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .podium {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .podium-item {
+        min-height: auto;
+        height: 250px !important;
+    }
+    
+    .leader-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 1.5rem;
+    }
+    
+    .nickname {
+        text-align: center;
+        padding: 0;
+    }
+    
+    .badge {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .join-button {
+        flex-direction: column;
+        gap: 8px;
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
