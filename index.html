@@ -6,15 +6,13 @@
     <title>LinuxLand | Discord Server</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/Logo_transparent.png" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐧</text></svg>">
 </head>
 <body>
     <div class="content">
         <div class="header-wrapper">
-            <img src="assets/Logo_transparent.png" 
-                 alt="LinuxLand Logo" 
-                 class="logo">
-            <h1 class="title">LinuxLand</h1>
+            <img id="season-logo" src="" alt="LinuxLand Logo" class="logo">
+            <img id="season-text" src="" alt="LinuxLand" class="title-image">
         </div>
         <h2 class="subtitle">Сообщество неадекватных толстых линуксоидов, которые издеваются над бедными пользователями великой виндовс</h2>
         
@@ -28,5 +26,54 @@
             </a>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Определяем текущий сезон
+            function getSeason() {
+                const now = new Date();
+                const month = now.getMonth() + 1; // месяцы от 0 до 11
+                
+                if (month >= 3 && month <= 5) return 'spring';
+                if (month >= 6 && month <= 8) return 'summer';
+                if (month >= 9 && month <= 11) return 'autumn';
+                return 'winter';
+            }
+            
+            // Устанавливаем соответствующие изображения
+            function setSeasonalImages(season) {
+                const seasonLogo = document.getElementById('season-logo');
+                const seasonText = document.getElementById('season-text');
+                
+                switch(season) {
+                    case 'spring':
+                        seasonLogo.src = 'assets/Union.svg';
+                        seasonText.src = 'assets/LinuxLand.svg';
+                        break;
+                    case 'summer':
+                        // Случайный выбор между двумя летними вариантами
+                        const summerVariant = Math.random() > 0.5 ? '4' : '5';
+                        seasonLogo.src = `assets/Union-${summerVariant}.svg`;
+                        seasonText.src = `assets/LinuxLand-${summerVariant}.svg`;
+                        break;
+                    case 'autumn':
+                        seasonLogo.src = 'assets/Union-1.svg';
+                        seasonText.src = 'assets/LinuxLand-1.svg';
+                        break;
+                    case 'winter':
+                        seasonLogo.src = 'assets/Union-2.svg';
+                        seasonText.src = 'assets/LinuxLand-2.svg';
+                        break;
+                }
+                
+                // Добавляем alt тексты для доступности
+                seasonLogo.alt = `LinuxLand ${season} Logo`;
+                seasonText.alt = `LinuxLand ${season}`;
+            }
+            
+            const currentSeason = getSeason();
+            setSeasonalImages(currentSeason);
+        });
+    </script>
 </body>
 </html>
